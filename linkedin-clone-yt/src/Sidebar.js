@@ -3,6 +3,14 @@ import React from 'react';
 import './Sidebar.css';
 
 function Sidebar() {
+
+const recentItem = (topic) => (
+<div className='sidebar_recentItem'>
+  <span className='sidebar_hash'>#</span>
+  <p>{topic}</p>
+</div>
+);
+
   return (
     <div className='sidebar'>
       <div className='sidebar_top'>
@@ -25,6 +33,11 @@ function Sidebar() {
 
       <div className='sidebar_botton'>
         <p>Recent</p>
+        {recentItem("reactjs")}
+        {recentItem("programing")}
+        {recentItem("softwareingeniering")}
+        {recentItem("design")}
+        {recentItem("developer")}
       </div>
     </div>
   );

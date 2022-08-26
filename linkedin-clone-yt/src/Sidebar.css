@@ -11,12 +11,12 @@
     margin-bottom: 10px;
 }
 
-.sidebar_top >h4{
+.sidebar_top>h4 {
     color: gray;
     font-size: 12px;
 }
 
-.sidebar_top >h2{
+.sidebar_top>h2 {
     font-size: 18px;
 }
 
@@ -68,11 +68,36 @@
     color: #0a66c2 !important;
 }
 
-.sidebar_botton{
+.sidebar_botton {
     text-align: left;
     padding: 10px;
     border: 1px solid lightgray;
     background-color: white;
     border-radius: 10px;
     margin-top: 10px;
+}
+
+.sidebar_recentItem {
+    display: flex;
+    font-size: 13px;
+    color: gray;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+.sidebar_botton>p {
+    font-size: 13px;
+    padding-bottom: 10px;
+}
+
+.sidebar_recentItem:hover {
+    background-color: whitesmoke;
+    border-radius: 10px;
+    cursor: pointer;
+    color: black;
+}
+
+.sidebar_hash {
+    margin-right: 10px;
+    margin-left: 5px;
 }
