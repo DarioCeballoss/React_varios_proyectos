@@ -1,18 +1,14 @@
 import './App.css';
+import Dot from './Dot';
 
 
 
 function App() {
   return (
     <div className="App">
-      <button className='button'>NEW</button>
-      <ul>
-        <li>
-          <a href='#'>
-            edit <Dot /> Red
-          </a>
-        </li>
-      </ul>
+      <Dot />
+      <Dot />
+      <Dot />
     </div>
   );
 }
