@@ -1,14 +1,19 @@
 import React from 'react';
 import './Dot.css';
 
-function Dot() {
+
+function Dot({ color, name }) {
+
+
+
+
   return (
     <div className='dot'>
-      <button className='button'>NEW</button>
-      <a href='#'>edit</a>
-      <div className='dot-color'>
+      <button className='button'>EDIT</button>
+
+      <div className='dot-color' style={{ backgroundColor: color }} >
       </div>
-      <p>RED</p>
+      <p>{name}</p>
     </div>
   );
 }
