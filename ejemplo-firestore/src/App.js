@@ -10,7 +10,7 @@ function App() {
 console.log(colors);
   useEffect(() => {
     onSnapshot(collection(db, 'colors'), (snapshot) => {
-      setColors(snapshot.docs.map(doc => doc.data()));
+      setColors(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id })));
     })
   }, []);
 
@@ -19,7 +19,7 @@ console.log(colors);
     <div className="App">
       <button className='button' style={{ backgroundColor: 'white' }}>NEW</button>
       {colors.map((estado) =>(
-        <Dot  color={estado.value} name={estado.name} />
+        <Dot  id={estado.id} color={estado.value} name={estado.name} />
 
       ))}
       

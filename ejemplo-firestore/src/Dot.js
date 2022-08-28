@@ -2,13 +2,13 @@ import React from 'react';
 import './Dot.css';
 
 
-function Dot({ color, name }) {
+function Dot({ color, name, id }) {
 
 
 
 
   return (
-    <div className='dot'>
+    <div key={id} className='dot'>
       <button className='button'>EDIT</button>
 
       <div className='dot-color' style={{ backgroundColor: color }} >
