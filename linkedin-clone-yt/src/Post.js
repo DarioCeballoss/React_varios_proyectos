@@ -22,7 +22,7 @@ function Post({ name, description, messaje, photoUrl }) {
       <div className='post_body'>
         <p>{messaje}</p>
       </div>
-      
+
       <div className='post_buttons'>
         <InputOption Icon={ThumbUpAltOutlinedIcon} title='Like' color='gray' />
         <InputOption Icon={ChatOutlinedIcon} title='Coment' color='gray' />
