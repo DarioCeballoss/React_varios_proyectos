@@ -7,7 +7,7 @@ import SubscriptionsIcon from "@material-ui/icons/Subscriptions";
 import EventIcon from "@material-ui/icons/Event";
 import CalendarViewDayIcon from "@material-ui/icons/CalendarViewDay";
 import Post from './Post';
-import { collection, onSnapshot, addDoc, serverTimestamp } from "firebase/firestore";
+import { collection, onSnapshot, addDoc, serverTimestamp, orderBy, query } from "firebase/firestore";
 import { db } from './firebase';
 
 
@@ -16,7 +16,7 @@ function Feed() {
   const [posts, setPosts] = useState([]);
   ///////  OK  /////////
   useEffect(() => {
-    onSnapshot(collection(db, 'posts'), (snapshot) => {
+    onSnapshot(query(collection(db, 'posts'),orderBy('timestamp', 'desc')), (snapshot) => {
       setPosts(snapshot.docs.map((doc) => ({
         id: doc.id,
         data: doc.data()
@@ -39,6 +39,7 @@ function Feed() {
     } catch (e) {
       console.error("Error adding document: ", e);
     }
+    setInput('');
   };
   ////////////////////////////
   return (
