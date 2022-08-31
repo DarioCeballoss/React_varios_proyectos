@@ -7,30 +7,41 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import BusinessCenterIcon from '@material-ui/icons/BusinessCenter';
 import ChatIcon from '@material-ui/icons/Chat';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import {useDispatch} from 'react-redux';
+import { getAuth } from "firebase/auth";
+import {logout} from './features/userSlice'
 
 function Header() {
-    return (
-        <div className='header'>
+  const dispatch = useDispatch();
+  const auth = getAuth();
 
-            <div className='header_left'>
-                <img src='https://cdn-icons-png.flaticon.com/512/174/174857.png' alt='logo de  linkedin' />
-                <div className='header_search'>
-                    <SearchIcon />
-                    <input placeholder='Search' type='text' />
-                </div>
-            </div>
+  const logoutOfApp = () => {
+    dispatch(logout());
+    auth.signOut();
+  };
 
-            <div className='header_right'>
-                <HeaderOption Icon={HomeIcon} title='Home' />
-                <HeaderOption Icon={SupervisorAccountIcon} title='My Network' />
-                <HeaderOption Icon={BusinessCenterIcon} title='Jobs' />
-                <HeaderOption Icon={ChatIcon} title='Messaging' />
-                <HeaderOption Icon={NotificationsIcon} title='Noifications' />
-                <HeaderOption avatar='https://media-exp1.licdn.com/dms/image/C4D03AQFSUIB4--g4rw/profile-displayphoto-shrink_100_100/0/1652040383854?e=1666828800&v=beta&t=uMAR1DWJpQnK0T6zr248oHUMC8N620N-McQxi3gWf2U' title='me' />
+  return (
+    <div className='header'>
 
-            </div>
+      <div className='header_left'>
+        <img src='https://cdn-icons-png.flaticon.com/512/174/174857.png' alt='logo de  linkedin' />
+        <div className='header_search'>
+          <SearchIcon />
+          <input placeholder='Search' type='text' />
         </div>
-    );
+      </div>
+
+      <div className='header_right'>
+        <HeaderOption Icon={HomeIcon} title='Home' />
+        <HeaderOption Icon={SupervisorAccountIcon} title='My Network' />
+        <HeaderOption Icon={BusinessCenterIcon} title='Jobs' />
+        <HeaderOption Icon={ChatIcon} title='Messaging' />
+        <HeaderOption Icon={NotificationsIcon} title='Noifications' />
+        <HeaderOption title='me' onClick={logoutOfApp} avatar='https://media-exp1.licdn.com/dms/image/C4D03AQFSUIB4--g4rw/profile-displayphoto-shrink_100_100/0/1652040383854?e=1666828800&v=beta&t=uMAR1DWJpQnK0T6zr248oHUMC8N620N-McQxi3gWf2U' />
+
+      </div>
+    </div>
+  );
 }
 
 export default Header;
