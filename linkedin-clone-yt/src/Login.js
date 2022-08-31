@@ -11,6 +11,7 @@ function Login() {
   const [profilePic, setProfilePic] = useState("");
   const dispatch = useDispatch();
   const auth = getAuth();
+  const user = auth.currentUser;
   
 
   const loginToApp = (e) => {
@@ -31,8 +32,8 @@ function Login() {
           .then(() => {
             dispatch(
               login({
-                email: auth.email,
-                uid: auth.uid,
+                email: user.email,
+                uid: user.uid,
                 displayName: name,
                 photoUrl: profilePic
               })
