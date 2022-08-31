@@ -1,27 +1,44 @@
 import React, { useState } from 'react';
-import {auth} from './firebase'
+import { getAuth, createUserWithEmailAndPassword,updateProfile  } from "firebase/auth";
 import './Login.css';
+import { login } from './features/userSlice';
+import { useDispatch } from 'react-redux';
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [profilePic, setProfilePic] = useState("");
+  const dispatch = useDispatch();
+  const auth = getAuth();
+  
 
   const loginToApp = (e) => {
     e.preventDefault();
   };
 
-  const register = () => { 
-    if(!name){
+  const register = () => {
+    if (!name) {
       return alert('please enter a full name!');
     }
 
-    auth.createUserWithEmailAndPassword(email, password)
-    .then((userAuth)=> {
-      userAuth.user.updateProfile({
-        
-      })}) 
+    createUserWithEmailAndPassword(auth, email, password).then(
+      
+      updateProfile(auth.currentUser,{
+            displayName: name,
+            photoUrl: profilePic
+          })
+          .then(() => {
+            dispatch(
+              login({
+                email: auth.email,
+                uid: auth.uid,
+                displayName: name,
+                photoUrl: profilePic
+              })
+            );
+          })
+      ).catch((error) => alert(error));
   };
 
 
