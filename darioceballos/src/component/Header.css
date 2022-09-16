@@ -1,0 +1,70 @@
+.BarraSup {
+  display: flex;
+  justify-content: flex-end;
+  height: 50px;
+  margin: 10px;
+}
+
+.espaciado {
+  padding-right: 10px;
+}
+.alaIz{
+  margin-right: auto;
+}
+
+/* DIV LOGO Y ANIMACION */
+#LogoAnimado {
+  display: flex;
+  border-color: lightslategrey;
+  border-radius: 10px;
+  border-style: solid;
+  height: 300px;
+}
+
+.logoDe {
+  position: relative;
+  margin-left: auto;
+  margin: auto;
+  height: 150px;
+  width: 150px;
+  animation-name: mueveDe;
+  animation-duration: 10s;
+
+}
+
+.logoIz {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  margin: auto;
+  margin-right: auto;
+  animation-name: mueveIz;
+  animation-duration: 10s;
+
+}
+
+.logoNom {
+  position: relative;
+  width: 50%;
+  margin: auto;
+  animation-name: aparece;
+  animation-duration: 10s;
+}
+
+@keyframes mueveIz {
+  0% {left: 30%;}
+  50% {left: 30%;}
+  100% {left: 0%;}
+}
+
+@keyframes mueveDe {
+  0% {right: 30%;}
+  50% {right: 30%;}
+  100% {right: 0%;}
+}
+
+@keyframes aparece {
+  0% {width: 0px;}
+  50% {width: 0px;}
+  100% {width: 50%;}
+}
