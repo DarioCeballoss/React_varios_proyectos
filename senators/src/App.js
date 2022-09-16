@@ -23,13 +23,13 @@ function App() {
       <Routes>
         <Route exact path='/' element={<Home />} />
 
-        <Route path='/favoritos' element={<HouseData />} />
-        <Route path='/listado' element={<HouseAttendance />} />
-        <Route path='/detalle' element={<HousePartyLoyalty />} />
+        <Route path='/house' element={<HouseData />} />
+        <Route path='/house/attendancce' element={<HouseAttendance />} />
+        <Route path='/house/partyloyalty' element={<HousePartyLoyalty />} />
 
-        <Route path='/resultados' element={<SenateData />} />
-        <Route path='/resultados' element={<SenateAttendance />} />
-        <Route path='/favoritos' element={<SenatePartyLoyalty />} />
+        <Route path='/senate' element={<SenateData />} />
+        <Route path='/senate/attendancce' element={<SenateAttendance />} />
+        <Route path='/senate/partyloyalty' element={<SenatePartyLoyalty />} />
       </Routes>
 
       <Footer />
