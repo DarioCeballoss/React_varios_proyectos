@@ -1,8 +1,8 @@
 .BarraSup {
   display: flex;
   justify-content: flex-end;
-  height: 50px;
-  margin: 10px;
+  height: 30px;
+  margin: 10px 0;
 }
 
 .espaciado {

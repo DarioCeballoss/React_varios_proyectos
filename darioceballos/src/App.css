@@ -1,4 +1,16 @@
 .App{
-  max-width: 70%;
+  max-width: 1000px;
   margin:auto;
+}
+p{
+  text-align: justify;
+}
+
+button{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: lightskyblue;
+  border: none;
+  margin-left: 15px;
 }

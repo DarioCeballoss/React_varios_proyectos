@@ -8,15 +8,16 @@ function Perfil() {
       <span className='perfil'>
         <img src={fotoPerfil} alt="Foto de perfil" />
         <h3>Dario Ceballos</h3>
-        <h4>FullStack Developer Jr.</h4>
+        <h4>FrontEnd Developer Jr.</h4>
       </span>
 
       <span>
-        <span className="">
+        <span className="personal-description">
           <h3> Sobre mi</h3>
           <button onclick="#" className="btnEditElim , edit" />
           <button className="btnEditElim , elim" />
         </span>
+        
         <p>
           Mi motivación principal es el crecimiento dentro de la institución, lo que me incentiva a
           concentrarme en mis tres cualidades más destacadas, “Autoexigente, proactivo, meritocratico”. Me

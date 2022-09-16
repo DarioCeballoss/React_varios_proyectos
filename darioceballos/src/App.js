@@ -1,4 +1,5 @@
 import './App.css';
+import Experiencia from './component/Experiencia';
 import Header from './component/Header';
 import Perfil from './component/Perfil';
 
@@ -8,7 +9,10 @@ function App() {
     <div className="App">
       <Header />
       <section>
-<Perfil />
+        <Perfil />
+        <Experiencia name='Experiencia' />
+        <Experiencia name='Educacion' />
+
       </section>
     </div>
   );
