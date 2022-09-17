@@ -1,0 +1,17 @@
+.lupa{
+  width: 400px;
+}
+.logo{
+  width: 300px;
+}
+table{
+  width: 90%;
+}
+
+
+.show{
+  display: block;
+}
+.not-show{
+  display: none;
+}

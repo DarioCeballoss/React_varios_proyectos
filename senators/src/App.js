@@ -9,15 +9,14 @@ import HousePartyLoyalty from './components/HousePartyLoyalty';
 import SenateData from './components/SenateData';
 import SenateAttendance from './components/SenateAttendance';
 import SenatePartyLoyalty from './components/SenatePartyLoyalty';
-
 import Footer from './components/Footer'
-
 
 import './components/bootstrap.min.css';
 
+
 function App() {
   return (
-    <div className="App">
+    <div className="App container">
       <Header />
 
       <Routes>
