@@ -6,7 +6,7 @@ function HouseData() {
 
 
   useEffect(() => {
-    const endPoint = 'https://api.propublica.org/congress/v1/116/senate/members.json';
+    const endPoint = 'https://api.propublica.org/congress/v1/116/house/members.json';
     axios.defaults.headers['X-API-KEY'] = 'rDYUl6e93qumCwukl6dAaoa8TUr4c6Nt52clfUF';
 
     axios.get(endPoint)
