@@ -72,12 +72,17 @@ function SenateAttendance() {
     ],
   };
 
+  //ordena de <
+  const menor = arr => {
+    return arr.sort((a, b) => a.missed_votes_pct - b.missed_votes_pct);
+  }
 
-  //ordena de menor a mayor
-  let porcentajeMenor = member.sort((a, b) => a.missed_votes_pct - b.missed_votes_pct);
+  const mayor = arr => {
+    return arr.sort((a, b) => b.missed_votes_pct - a.missed_votes_pct);
+  }
   //10%
-  let diesPmenor = Math.round(porcentajeMenor.length*0.1);
-
+  //let 10 = Math.round(member.length * 0.1);
+  //console.log('dies% ' + member.length);
   return (
     <section>
       <div className="row">
@@ -136,12 +141,12 @@ function SenateAttendance() {
             </thead>
 
             <tbody>
-              {porcentajeMenor.slice(0, diesPmenor).map((member, ind) => {
+              {menor(member).slice(0, 10).map((member, ind) => {
                 return (
                   <tr key={ind}>
-                    <td><a href={member.url}>{ member.last_name } { member.first_name } { member.middle_name }</a></td>
-                    <td>{ member.total_votes }</td>
-                    <td>{ member.missed_votes_pct }</td>
+                    <td><a href={member.url}>{member.last_name} {member.first_name} {member.middle_name}</a></td>
+                    <td>{member.total_votes}</td>
+                    <td>{member.missed_votes_pct}</td>
                   </tr>
                 )
               })}
@@ -161,7 +166,15 @@ function SenateAttendance() {
             </thead>
 
             <tbody >
-
+              {mayor(member).slice(0, 10).map((member, ind) => {
+                return (
+                  <tr key={ind}>
+                    <td><a href={member.url}>{member.last_name} {member.first_name} {member.middle_name}</a></td>
+                    <td>{member.total_votes}</td>
+                    <td>{member.missed_votes_pct}</td>
+                  </tr>
+                )
+              })}
 
 
             </tbody>
