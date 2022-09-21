@@ -14,23 +14,26 @@ import './components/bootstrap.min.css';
 
 
 function App() {
-  const [congress, setMember] = useState([]);
+  const [congresS, setCongresS] = useState([]);
+  const [congresH, setCongresH] = useState([]);
 
   useEffect(() => {
-    const endPoint = 'https://api.propublica.org/congress/v1/116/senate/members.json';
     axios.defaults.headers['X-API-KEY'] = 'rDYUl6e93qumCwukl6dAaoa8TUr4c6Nt52clfUF';
 
-    axios.get(endPoint)
-      .then(response => {
-        const apiData = response.data;
-        setMember(apiData.results[0].members);
-
-      }).catch((error) => {
+    axios.all([
+      axios.get('https://api.propublica.org/congress/v1/116/senate/members.json'),
+      axios.get('https://api.propublica.org/congress/v1/116/house/members.json')
+    ]).then(response => {
+      setCongresS(response[0].data.results[0].members);
+      setCongresH(response[1].data.results[0].members);
+     // const apiData = response.data;
+      //setMember(apiData.results[0].members);
+    }).catch((error) => {
         console.log(error);
       })
-  }, [setMember]);
-  console.log('app   ');
-console.log(congress);
+  }, []);
+
+  
 
   return (
     <div className="App container">
@@ -39,13 +42,13 @@ console.log(congress);
       <Routes>
         <Route exact path='/' element={<Home />} />
 
-        <Route path='/house' element={<Data congress={congress} />} />
-        <Route path='/house/attendancce' element={<Attendance congress={congress} />} />
-        <Route path='/house/partyloyalty' element={<PartyLoyalty congress={congress} />} />
+        <Route path='/house' element={<Data congress={congresH} />} />
+        <Route path='/house/attendancce' element={<Attendance congress={congresH} />} />
+        <Route path='/house/partyloyalty' element={<PartyLoyalty congress={congresH} />} />
 
-        <Route path='/senate' element={<Data congress={congress} />} />
-        <Route path='/senate/attendancce' element={<Attendance congress={congress} />} />
-        <Route path='/senate/partyloyalty' element={<PartyLoyalty congress={congress} />} />
+        <Route path='/senate' element={<Data congress={congresS} />} />
+        <Route path='/senate/attendancce' element={<Attendance congress={congresS} />} />
+        <Route path='/senate/partyloyalty' element={<PartyLoyalty congress={congresS} />} />
       </Routes>
 
       <Footer />
