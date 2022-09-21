@@ -1,23 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-
-function HouseData() {
-  const [member, setMember] = useState([]);
 
 
-  useEffect(() => {
-    const endPoint = 'https://api.propublica.org/congress/v1/116/house/members.json';
-    axios.defaults.headers['X-API-KEY'] = 'rDYUl6e93qumCwukl6dAaoa8TUr4c6Nt52clfUF';
-
-    axios.get(endPoint)
-      .then(response => {
-        const apiData = response.data;
-        setMember(apiData.results[0].members);
-
-      }).catch((error) => {
-        console.log(error);
-      })
-  }, [member]);
+function Data(props) {
+  console.log('data    ');
+  console.log(props.congress);
 
 
   return (
@@ -44,7 +29,7 @@ function HouseData() {
         <tbody >
           {/*aca va el map*/}
 
-          {member.map((member, ind) => {
+          {props.congress.map((member, ind) => {
             return (
               <tr key={ind}>
                 <td><a href={member.url}>{member.last_name} {member.first_name} {member.middle_name}</a></td>
@@ -62,4 +47,4 @@ function HouseData() {
   )
 }
 
-export default HouseData;
+export default Data;

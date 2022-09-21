@@ -1,6 +1,6 @@
 import React from 'react'
 
-function HousePartyLoyalty() {
+function PartyLoyalty() {
   return (
     <div>
       house3
@@ -8,4 +8,4 @@ function HousePartyLoyalty() {
   )
 }
 
-export default HousePartyLoyalty;
+export default PartyLoyalty;
