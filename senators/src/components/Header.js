@@ -40,8 +40,8 @@ function Header() {
 								<b>Attendance</b>
 							</button>
 							<ul className="dropdown-menu dropdown-content">
-								<li><Link to='/house/attendancce' className="dropdown-item"><b>House</b></Link></li>
 								<li><Link to='/senate/attendancce' className="dropdown-item"><b>Senate</b></Link></li>
+								<li><Link to='/house/attendancce' className="dropdown-item"><b>House</b></Link></li>
 							</ul>
 						</li>
 
@@ -50,8 +50,8 @@ function Header() {
 								<b>Party Loyalty</b>
 							</button>
 							<ul className="dropdown-menu dropdown-content">
-								<li><Link to='/house/partyloyalty' className="dropdown-item"><b>House</b></Link></li>
 								<li><Link to='/senate/partyloyalty' className="dropdown-item"><b>Senate</b></Link></li>
+								<li><Link to='/house/partyloyalty' className="dropdown-item"><b>House</b></Link></li>
 							</ul>
 						</li>
 					</ul>

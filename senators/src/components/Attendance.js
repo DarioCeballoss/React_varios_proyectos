@@ -1,8 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-
-function Attendance() {
-  const [memberS, setMemberS] = useState([]);
+function Attendance(props) {
   
   let democrat = 0;
   let republican = 0;
@@ -11,22 +7,7 @@ function Attendance() {
   let PROrepublican = 0;
   let PROindependent = 0;
 
-  useEffect(() => {
-
-    let endPoint = `https://api.propublica.org/congress/v1/116/senate/members.json`;
-    axios.defaults.headers['X-API-KEY'] = 'rDYUl6e93qumCwukl6dAaoa8TUr4c6Nt52clfUF';
-
-    axios.get(endPoint)
-      .then(response => {
-        const apiData = response.data;
-        setMemberS(apiData.results[0].members);
-
-      }).catch((error) => {
-        console.log(error);
-      })
-  }, []);
-
-  memberS.forEach(element => {
+  props.congress.forEach(element => {
     if (element.party === "D") {
       ++democrat;
       PROdemocrat += element.votes_with_party_pct;
@@ -82,8 +63,8 @@ function Attendance() {
     return arr.sort((a, b) => b.missed_votes_pct - a.missed_votes_pct);
   }
   //10%
-  //let 10 = Math.round(memberS.length * 0.1);
-  //console.log('dies% ' + memberS.length);
+  //let 10 = Math.round(member.length * 0.1);
+  //console.log('dies% ' + member.length);
   return (
     <section>
       <div className="row">
@@ -114,12 +95,12 @@ function Attendance() {
             </thead>
 
             <tbody >
-              {estadistica.senado.map((memberS, ind) => {
+              {estadistica.senado.map((member, ind) => {
                 return (
                   <tr key={ind}>
-                    <td>{memberS.Party}</td>
-                    <td>{memberS.catidad}</td>
-                    <td>{memberS.promedio}</td>
+                    <td>{member.Party}</td>
+                    <td>{member.catidad}</td>
+                    <td>{member.promedio}</td>
                   </tr>
                 )
               })}
@@ -142,12 +123,12 @@ function Attendance() {
             </thead>
 
             <tbody>
-              {menor(memberS).slice(0, 10).map((memberS, ind) => {
+              {menor(props.congress).slice(0, 10).map((member, ind) => {
                 return (
                   <tr key={ind}>
-                    <td><a href={memberS.url}>{memberS.last_name} {memberS.first_name} {memberS.middle_name}</a></td>
-                    <td>{memberS.total_votes}</td>
-                    <td>{memberS.missed_votes_pct}</td>
+                    <td><a href={member.url}>{member.last_name} {member.first_name} {member.middle_name}</a></td>
+                    <td>{member.total_votes}</td>
+                    <td>{member.missed_votes_pct}</td>
                   </tr>
                 )
               })}
@@ -167,12 +148,12 @@ function Attendance() {
             </thead>
 
             <tbody >
-              {mayor(memberS).slice(0, 10).map((memberS, ind) => {
+              {mayor(props.congress).slice(0, 10).map((member, ind) => {
                 return (
                   <tr key={ind}>
-                    <td><a href={memberS.url}>{memberS.last_name} {memberS.first_name} {memberS.middle_name}</a></td>
-                    <td>{memberS.total_votes}</td>
-                    <td>{memberS.missed_votes_pct}</td>
+                    <td><a href={member.url}>{member.last_name} {member.first_name} {member.middle_name}</a></td>
+                    <td>{member.total_votes}</td>
+                    <td>{member.missed_votes_pct}</td>
                   </tr>
                 )
               })}

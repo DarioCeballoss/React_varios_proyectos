@@ -1,9 +1,4 @@
-
-
 function Data(props) {
-  console.log('data    ');
-  console.log(props.congress);
-
 
   return (
     <section>
