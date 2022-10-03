@@ -21,8 +21,8 @@ function Home() {
           </p>
 
 
-          <button type="button" onClick={() => { setShow(!show); }} >
-            Read More
+          <button className='bg-light border-0 border-bottom' type="button" onClick={() => { setShow(!show); }} >
+            {show ? 'Read Less' : 'Read More'}
           </button>
           <div className={show ? 'show' : 'not-show'}>
             <p>We also believe that government should be participatory. Public engagement enhances the Government's
@@ -65,6 +65,13 @@ function Home() {
 
             <p>The United States passed its Freedom of Information Act (FOIA) in 1966, FOIAs, Access to Information Acts
               (AIAs) or equivalent laws were passed in Denmark and Norway in 1970.</p>
+
+            <button className='bg-light border-0 border-bottom' type="button" onClick={() => { setShow(!show); }} >
+              Read Less
+            </button>
+            <br></br>
+            <br></br>
+            <br></br>
           </div>
         </article>
 

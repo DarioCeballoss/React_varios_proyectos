@@ -84,7 +84,7 @@ function Attendance(props) {
 
 
         <article className="col">
-          <h4 className="text-right"> Senate at a galance </h4>
+          <h4 className="text-right"> {props.name} at a galance </h4>
           <table className="table table-bordered text-center table-hover">
             <thead>
               <tr>

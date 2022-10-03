@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import './Header.css';
+import  Search  from "./Search";
 import LogoTgif from './img/LOGOTGIF.jpg'
 
 
@@ -54,8 +55,10 @@ function Header() {
 								<li><Link to='/house/partyloyalty' className="dropdown-item"><b>House</b></Link></li>
 							</ul>
 						</li>
+						<Search />
 					</ul>
-					
+
+
 				</div>
 			</nav>
 		</header>

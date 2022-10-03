@@ -43,12 +43,12 @@ function App() {
         <Route exact path='/' element={<Home />} />
 
         <Route path='/house' element={<Data congress={congresH} />} />
-        <Route path='/house/attendancce' element={<Attendance congress={congresH} />} />
-        <Route path='/house/partyloyalty' element={<PartyLoyalty congress={congresH} />} />
+        <Route path='/house/attendancce' element={<Attendance congress={congresH} name={'House'} />} />
+        <Route path='/house/partyloyalty' element={<PartyLoyalty congress={congresH} name={'House'} />} />
 
         <Route path='/senate' element={<Data congress={congresS} />} />
-        <Route path='/senate/attendancce' element={<Attendance congress={congresS} />} />
-        <Route path='/senate/partyloyalty' element={<PartyLoyalty congress={congresS} />} />
+        <Route path='/senate/attendancce' element={<Attendance congress={congresS} name={'Senate'}/>} />
+        <Route path='/senate/partyloyalty' element={<PartyLoyalty congress={congresS} name={'Senate'} />} />
       </Routes>
 
       <Footer />
